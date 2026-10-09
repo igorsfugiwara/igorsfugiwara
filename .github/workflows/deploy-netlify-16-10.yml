@@ -31,7 +31,6 @@ jobs:
           HOOK_PDV_CASA_O: ${{ secrets.HOOK_PDV_CASA_O }}
           HOOK_CATAN: ${{ secrets.HOOK_CATAN }}
           HOOK_POKE_TRUNFO: ${{ secrets.HOOK_POKE_TRUNFO }}
-          HOOK_LINKTREE_ESCOMBRO: ${{ secrets.HOOK_LINKTREE_ESCOMBRO }}
           EVENTO: ${{ github.event_name }}
           SIMULAR: ${{ inputs.simular }}
         run: |
@@ -41,7 +40,7 @@ jobs:
           fi
 
           falhas=0
-          for nome in HOOK_PORTFOLIO HOOK_PDV_CASA_O HOOK_CATAN HOOK_POKE_TRUNFO HOOK_LINKTREE_ESCOMBRO; do
+          for nome in HOOK_PORTFOLIO HOOK_PDV_CASA_O HOOK_CATAN HOOK_POKE_TRUNFO; do
             url="${!nome}"
             if [ -z "$url" ]; then
               echo "::error::$nome não está configurado nos segredos do repositório."
